@@ -1,0 +1,1 @@
+@call flyway -configFiles=conf/application.conf migrate
