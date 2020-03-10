@@ -1,6 +1,7 @@
 package ru.vsamarin.easy_ee_application.rest;
 
 import ru.vsamarin.easy_ee_application.dto.UserDto;
+import ru.vsamarin.easy_ee_application.rest.exception.EntityNotFoundException;
 import ru.vsamarin.easy_ee_application.service.UserService;
 
 import javax.ejb.EJB;
@@ -16,7 +17,7 @@ public class UserController implements UserApi {
     private UserService userService;
 
     @Override
-    public UserDto dto(Long id) {
+    public UserDto dto(Long id) throws EntityNotFoundException {
         return userService.getById(id);
     }
 
@@ -30,4 +31,13 @@ public class UserController implements UserApi {
         return userService.create(dto);
     }
 
+    @Override
+    public Long update(Long id, UserDto dto) throws EntityNotFoundException {
+        return userService.update(id, dto);
+    }
+
+    @Override
+    public Long delete(Long id) throws EntityNotFoundException {
+        return userService.delete(id);
+    }
 }

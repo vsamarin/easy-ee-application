@@ -25,4 +25,12 @@ public class UserRepository extends ExampleRepositoryBase<UserEntity> {
         return em().createQuery(criteriaQuery).getResultList();
     }
 
+    public UserEntity update(UserEntity entity) {
+        return em().merge(entity);
+    }
+
+    public void delete(UserEntity entity) {
+        em().detach(entity);
+    }
+
 }
