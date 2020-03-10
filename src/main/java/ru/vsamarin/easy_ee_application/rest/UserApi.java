@@ -26,7 +26,7 @@ public interface UserApi {
                     @ApiResponse(responseCode = "200", content = @Content(mediaType = MediaType.APPLICATION_JSON, schema = @Schema(implementation = UserDto.class))),
                     @ApiResponse(responseCode = "404", description = "Пользователь не найден")
             })
-    UserDto dto(@PathParam("id") Long id) throws EntityNotFoundException;
+    UserDto getById(@PathParam("id") Long id) throws EntityNotFoundException;
 
     @GET
     @Path("/list")

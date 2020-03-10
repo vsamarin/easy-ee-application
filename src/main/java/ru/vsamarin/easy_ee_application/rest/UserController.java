@@ -17,7 +17,7 @@ public class UserController implements UserApi {
     private UserService userService;
 
     @Override
-    public UserDto dto(Long id) throws EntityNotFoundException {
+    public UserDto getById(Long id) throws EntityNotFoundException {
         return userService.getById(id);
     }
 
